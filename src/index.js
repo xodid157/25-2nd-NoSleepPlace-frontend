@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GlobalStyle from './components/GlobalStyle';
+import GlobalStyle from './styles/GlobalStyle';
 import Routes from './Routes';
 
 ReactDOM.render(
   <>
-    <GlobalStyle />, <Routes />
+    <GlobalStyle /> <Routes />
   </>,
   document.getElementById('root')
 );
