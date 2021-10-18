@@ -24,5 +24,5 @@ class Routes extends React.Component {
 export default Routes;
 
 const NavMargin = styled.div`
-  margin-top: 100px;
+  margin-top: 80px;
 `;
