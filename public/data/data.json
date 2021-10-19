@@ -7,32 +7,94 @@
       "sub_categories": [
         { "id": 1, "name": "주택" },
         { "id": 2, "name": "아파트" },
-        { "id": 3, "name": "빌라" }
+        { "id": 3, "name": "빌라" },
+        { "id": 4, "name": "원룸" },
+        { "id": 5, "name": "한옥" }
       ]
     },
     {
       "id": 2,
       "name": "스튜디오",
-      "thumbnail": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-      "sub_categories": [{ "id": 2, "name": "빈티지" }]
+      "thumbnail": "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "빈티지" },
+        { "id": 2, "name": "자연광" },
+        { "id": 3, "name": "호리존" },
+        { "id": 4, "name": "유튜브" },
+        { "id": 5, "name": "단독주택형" },
+        { "id": 6, "name": "키친" }
+      ]
     },
     {
       "id": 3,
       "name": "상업공간",
-      "thumbnail": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-      "sub_categories": [{ "id": 3, "name": "카페" }]
+      "thumbnail": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "카페" },
+        { "id": 2, "name": "식당" },
+        { "id": 3, "name": "바/술집" },
+        { "id": 4, "name": "헬스장" },
+        { "id": 5, "name": "요가/필라테스" }
+      ]
     },
     {
       "id": 4,
       "name": "편의시설",
-      "thumbnail": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-      "sub_categories": [{ "id": 4, "name": "스포츠" }]
+      "thumbnail": "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "편의점" },
+        { "id": 2, "name": "빨래방" },
+        { "id": 3, "name": "헤어샵" },
+        { "id": 4, "name": "PC방" },
+        { "id": 5, "name": "노래방" }
+      ]
     },
     {
-      "id": 4,
-      "name": "편의시설",
-      "thumbnail": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
-      "sub_categories": [{ "id": 4, "name": "스포츠" }]
+      "id": 5,
+      "name": "문화공간",
+      "thumbnail": "https://images.unsplash.com/photo-1578985824626-945a6f546304?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1331&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "복합문화공간" },
+        { "id": 2, "name": "갤러리" },
+        { "id": 3, "name": "공방/작업실" },
+        { "id": 4, "name": "공연장" },
+        { "id": 5, "name": "강의실" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "특수공간",
+      "thumbnail": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "사무실" },
+        { "id": 2, "name": "병원/약국" },
+        { "id": 3, "name": "학교" },
+        { "id": 4, "name": "웨딩" },
+        { "id": 5, "name": "호텔펜션" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "대형공간",
+      "thumbnail": "https://images.unsplash.com/photo-1513828583688-c52646db42da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "공장" },
+        { "id": 2, "name": "창고" },
+        { "id": 3, "name": "지하실" },
+        { "id": 4, "name": "빈 공간" },
+        { "id": 5, "name": "폐차장" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "야외",
+      "thumbnail": "https://images.unsplash.com/photo-1623358519330-00f61d89396b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
+      "sub_categories": [
+        { "id": 1, "name": "옥상" },
+        { "id": 2, "name": "정원" },
+        { "id": 3, "name": "캠핑장" },
+        { "id": 4, "name": "기타 야외 장소" }
+      ]
     }
   ]
 }

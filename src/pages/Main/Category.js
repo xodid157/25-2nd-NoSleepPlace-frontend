@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default class Category extends Component {
@@ -21,17 +22,17 @@ export default class Category extends Component {
 
     return (
       <Container>
-        {categories.map(({ namee, thumbnail, sub_categories }, idx) => {
+        {categories.map(({ name, thumbnail, sub_categories }, idx) => {
           return (
             <Card key={idx}>
-              <p>{namee}</p>
+              <CateName>{name}</CateName>
               <img alt="thumbnail" src={thumbnail} />
               <ButtonWrap>
-                {sub_categories.map(({ name }, idx) => {
+                {sub_categories.map(({ name, id }, idx) => {
                   return (
-                    <button type="button" key={idx}>
-                      {name}
-                    </button>
+                    <Link to={`place?category=${id}`} key={idx}>
+                      <button type="button">{name}</button>
+                    </Link>
                   );
                 })}
               </ButtonWrap>
@@ -56,19 +57,19 @@ const Card = styled.div`
   margin-right: 20px;
   padding-top: 70px;
 
-  & > p {
-    margin-bottom: 10px;
-    font-size: 19px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
   img {
     height: 149px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
   }
+`;
+
+const CateName = styled.div`
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
 `;
 
 const ButtonWrap = styled.div`
