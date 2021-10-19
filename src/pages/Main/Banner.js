@@ -1,18 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function Banner() {
   return (
     <Container>
-      <img alt="banner" src="/images/studio.jpg" />
-      <Sentence>
-        <p>
-          내가 찾던 촬영장소,
-          <br />
-          모두 여기에.
-        </p>
-        <p>모든 장소 둘러보기 </p>
-      </Sentence>
+      <Link to="place?">
+        <img alt="banner" src="/images/studio.jpg" />
+        <Sentence>
+          <p>
+            내가 찾던 촬영장소,
+            <br />
+            모두 여기에
+          </p>
+          <p>모든 장소 둘러보기 </p>
+        </Sentence>
+      </Link>
     </Container>
   );
 }

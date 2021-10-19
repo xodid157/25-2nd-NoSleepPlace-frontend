@@ -4,6 +4,7 @@ import Category from './Category';
 import styled from 'styled-components';
 import Suggest from './Suggest';
 import VerticalAd from './VerticalAd';
+import { Link } from 'react-router-dom';
 
 export default class Main extends Component {
   render() {
@@ -13,10 +14,12 @@ export default class Main extends Component {
         <Container>
           <Category />
           <GoAllProduct>
-            <button>
-              아워플레이스 모든 장소 보기
-              <i className="fas fa-arrow-right" />
-            </button>
+            <Link to="place?">
+              <button>
+                아워플레이스 모든 장소 보기
+                <i className="fas fa-arrow-right" />
+              </button>
+            </Link>
           </GoAllProduct>
           <Suggest />
           <VerticalAd />
@@ -29,7 +32,7 @@ export default class Main extends Component {
 const Container = styled.div`
   width: 1280px;
   height: 100%;
-  margin: 0 auto 0 86px;
+  margin: 0 auto;
 `;
 
 const GoAllProduct = styled.div`

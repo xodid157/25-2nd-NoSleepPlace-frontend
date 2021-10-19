@@ -2,53 +2,57 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-export default class VerticalMode extends Component {
+export default class SimpleSlider extends Component {
+  play() {
+    this.slider.slickPlay();
+  }
+  pause() {
+    this.slider.slickPause();
+  }
+
   render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      vertical: true,
-      verticalSwiping: true,
-      beforeChange: function (currentSlide, nextSlide) {},
-      afterChange: function (currentSlide) {},
-    };
     return (
-      <div>
-        <SlideWrap>
-          <SlideAd {...settings}>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-          </SlideAd>
-        </SlideWrap>
-      </div>
+      <VerticalAd {...settings}>
+        <ImgWrap>
+          <img alt="adImage" src="/images/coupon.png" />
+        </ImgWrap>
+        <ImgWrap>
+          <img alt="adImage" src="/images/findPlace.png" />
+        </ImgWrap>
+        <ImgWrap>
+          <img alt="adImage" src="/images/friend.png" />
+        </ImgWrap>
+      </VerticalAd>
     );
   }
 }
 
-const SlideWrap = styled.div`
-  margin: 150px 70px 150px 50px;
+const VerticalAd = styled(Slider)`
+  margin: 200px auto;
+  width: 1150px;
+  border-radius: 10px;
+`;
 
-  div {
-    display: flex;
-    flex-direction: column;
+const ImgWrap = styled.div`
+  display: relative;
+  height: 157px;
+  border-radius: 10px;
+
+  img {
     width: 100%;
-    height: 200px;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
-    background-color: pink;
-
-    h3 {
-      font-size: 20px;
-    }
+    margin: 0 auto;
   }
 `;
 
-const SlideAd = styled(Slider)``;
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};

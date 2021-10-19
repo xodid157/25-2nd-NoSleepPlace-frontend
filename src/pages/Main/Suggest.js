@@ -5,40 +5,63 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default class SimpleSlider extends Component {
+  state = {
+    categories: [],
+  };
+
+  componentDidMount() {
+    fetch('/data/placeDetail.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          categories: data.result,
+        });
+      });
+  }
   render() {
+    const { categories } = this.state;
     return (
       <SliderWrap>
         <h2>이 장소는 어때요?</h2>
 
         <SlideCategory {...settings}>
-          {IMAGE_LIST.map(({ id, src }) => (
-            <React.Fragment key={id}>
-              <img alt="places" src={src} />
-              <PlaceInfo>
-                <CategoryNLocal>
-                  <p>카페.서울</p>
-                  <div>
-                    <button>
-                      <i className="far fa-user" />
-                      <span> 9</span>
-                    </button>
-                    <button>
-                      <i className="far fa-user" />
-                      <span> 9</span>
-                    </button>
-                  </div>
-                </CategoryNLocal>
-                <InfoTitle>[용산]레트로 빈티지 무드의 특색있는 카페</InfoTitle>
-                <p>80,000원</p>
-              </PlaceInfo>
-            </React.Fragment>
-          ))}
+          {categories?.map(
+            ({ id, place_name, category, capacity, price, parking, url }) => (
+              <React.Fragment key={id}>
+                <Thumbnail>
+                  <img alt="places" src={url[0]} />
+                </Thumbnail>
+                <PlaceInfo>
+                  <CategoryNLocal>
+                    <p>{category}</p>
+                    <div>
+                      <button>
+                        <i className="far fa-user" />
+                        <span>{capacity.slice(-2, -1)}</span>
+                      </button>
+                      <button>
+                        <i className="fas fa-car" />
+                        <span> {parking.slice(3, 4)}</span>
+                      </button>
+                    </div>
+                  </CategoryNLocal>
+                  <InfoTitle>{place_name}</InfoTitle>
+                  <p>{price}원</p>
+                </PlaceInfo>
+              </React.Fragment>
+            )
+          )}
         </SlideCategory>
       </SliderWrap>
     );
   }
 }
 
+const Thumbnail = styled.div`
+  width: 278px;
+  height: 180px;
+  object-fit: cover;
+`;
 const SliderWrap = styled.div`
   margin: 0 50px 80px;
 
@@ -89,11 +112,11 @@ const SlideCategory = styled(Slider)`
   /* Arrows */
   .slick-prev,
   .slick-next {
-    width: 40px; // fdsfds fdsfdsfdsfdsfdsfdsfdsf ds fds fds f
-    height: 40px; // fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfds
+    width: 40px;
+    height: 40px;
     padding: 0;
     cursor: pointer;
-    border: 1px solid #c7c9cc; // ffffffdsfdsafdsq버튼보더fdsfdsfdsfs
+    border: 1px solid #c7c9cc;
     border-radius: 100%;
   }
 
@@ -104,16 +127,16 @@ const SlideCategory = styled(Slider)`
 
   .slick-prev:before {
     color: gray;
-    content: '<'; // fdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfsdfdsfdsfds
+    content: '<';
   }
 
   .slick-next {
-    right: 20px; //fdsafdsfdsfdsfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfds
+    right: 20px;
     top: -30px;
   }
 
   .slick-next:before {
-    content: '>'; // fdafdafdafdsafdsafdsafdafdsfdsfdsfdsfdsfdsfsd
+    content: '>';
     color: gray;
   }
 `;
@@ -125,26 +148,3 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 1,
 };
-
-const IMAGE_LIST = [
-  {
-    id: 0,
-    src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    id: 1,
-    src: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    id: 2,
-    src: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    id: 3,
-    src: 'https://images.unsplash.com/photo-1542181961-9590d0c79dab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    id: 4,
-    src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1169&q=80',
-  },
-];

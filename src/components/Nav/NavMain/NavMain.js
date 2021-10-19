@@ -29,7 +29,7 @@ export default class NavMain extends Component {
             <NavItem>WATCH</NavItem>
             <NavItem>매거진</NavItem>
             <i className="fas fa-search" onClick={handleSerchButton} />
-            <i class="fas fa-map-marker-alt" />
+            <i className="fas fa-map-marker-alt" />
             <RightLine />
             {isLogIn ? (
               <LogIn>
@@ -39,8 +39,8 @@ export default class NavMain extends Component {
                   src={kakaoList.profile_image}
                   onClick={handleInfoBytton}
                 />
-                <i class="far fa-bell" />
-                <i class="far fa-bookmark" />
+                <i className="far fa-bell" />
+                <i className="far fa-bookmark" />
               </LogIn>
             ) : (
               <LogOut>
