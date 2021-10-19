@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
 export default class NavCategory extends Component {
   handleSearchCategory = e => {
     if (e === '주택') {

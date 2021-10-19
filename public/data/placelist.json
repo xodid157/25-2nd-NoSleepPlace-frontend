@@ -1,94 +1,118 @@
-[
-  {
-    "title": "가정집",
-    "content": ["전체", "아파트", "주택", "빌라", "원룸", "한옥", "홈오피스"]
-  },
-  {
-    "title": "스튜디오",
-    "content": [
-      "전체",
-      "자연광",
-      "호리존",
-      "유튜브",
-      "단독주택형",
-      "빈티지",
-      "키친",
-      "무대형",
-      "세트장",
-      "무인",
-      "녹음실",
-      "연습실",
-      "파티룸",
-      "스튜디오"
-    ]
-  },
-  {
-    "title": "상업 공간",
-    "content": [
-      "전체",
-      "카페",
-      "식당",
-      "바/술집",
-      "헬스장",
-      "요가/필라테스",
-      "기타 상업 공간"
-    ]
-  },
-  {
-    "title": "편의시설",
-    "content": [
-      "전체",
-      "편의점",
-      "빨래방",
-      "헤어샵",
-      "PC방",
-      "노래방",
-      "오락실",
-      "스포츠"
-    ]
-  },
-  {
-    "title": "문화 공간",
-    "content": [
-      "전체",
-      "복합문화공간",
-      "갤러리",
-      "공방/작업실",
-      "책방",
-      "공연장",
-      "강당",
-      "강의실"
-    ]
-  },
-  {
-    "title": "특수 공간",
-    "content": [
-      "전체",
-      "사무실",
-      "병원/약국",
-      "학교",
-      "학원",
-      "학원",
-      "클럽",
-      "웨딩",
-      "호텔펜션",
-      "기타 특수 공간"
-    ]
-  },
-  {
-    "title": "대형 공간",
-    "content": [
-      "전체",
-      "공장",
-      "창고",
-      "지하실",
-      "빈 공간",
-      "폐차장",
-      "기타 대형 공간"
-    ]
-  },
-  {
-    "title": "야외",
-    "content": ["전체", "옥상", "정원", "공터", "캠핑장", "기타 야외 장소"]
-  }
-]
+{
+  "product": [
+    {
+      "id": 1,
+      "title": "가정집",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "주택", "categoryId": 1 },
+        { "name": "아파트", "categoryId": 2 },
+        { "name": "빌라", "categoryId": -1 },
+        { "name": "원룸", "categoryId": -1 },
+        { "name": "한옥", "categoryId": -1 },
+        { "name": "홈오피스", "categoryId": -1 }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "스튜디오",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "자연광", "categoryId": -1 },
+        { "name": "호리존", "categoryId": -1 },
+        { "name": "유튜브", "categoryId": -1 },
+        { "name": "단독주택형", "categoryId": -1 },
+        { "name": "빈티지", "categoryId": 3 },
+        { "name": "키친", "categoryId": 4 },
+        { "name": "무대형", "categoryId": -1 },
+        { "name": "세트장", "categoryId": -1 },
+        { "name": "무인", "categoryId": -1 },
+        { "name": "녹음실", "categoryId": -1 },
+        { "name": "연습실", "categoryId": -1 },
+        { "name": "파티룸", "categoryId": -1 },
+        { "name": "스튜디오", "categoryId": -1 }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "상업 공간",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "카페", "categoryId": 5 },
+        { "name": "식당", "categoryId": 6 },
+        { "name": "바/술집", "categoryId": -1 },
+        { "name": "헬스장", "categoryId": -1 },
+        { "name": "요가/필라테스", "categoryId": -1 },
+        { "name": "기타 상업 공간", "categoryId": -1 }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "편의시설",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "편의점", "categoryId": 7 },
+        { "name": "빨래방", "categoryId": -1 },
+        { "name": "헤어샵", "categoryId": -1 },
+        { "name": "피시방", "categoryId": -1 },
+        { "name": "노래방", "categoryId": -1 },
+        { "name": "오락실", "categoryId": -1 },
+        { "name": "스포츠", "categoryId": 8 }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "문화 공간",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "복합문화공간", "categoryId": -1 },
+        { "name": "갤러리", "categoryId": -1 },
+        { "name": "공방/작업실", "categoryId": -1 },
+        { "name": "책방", "categoryId": -1 },
+        { "name": "공연장", "categoryId": -1 },
+        { "name": "강당", "categoryId": -1 },
+        { "name": "강의실", "categoryId": -1 }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "특수 공간",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "사무실", "categoryId": -1 },
+        { "name": "병원/약국", "categoryId": -1 },
+        { "name": "학교", "categoryId": -1 },
+        { "name": "학원", "categoryId": -1 },
+        { "name": "클럽", "categoryId": -1 },
+        { "name": "웨딩", "categoryId": -1 },
+        { "name": "호텔펜션", "categoryId": -1 },
+        { "name": "기타 특수 공간", "categoryId": -1 }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "대형 공간",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "공장", "categoryId": -1 },
+        { "name": "창고", "categoryId": -1 },
+        { "name": "지하실", "categoryId": -1 },
+        { "name": "빈 공간", "categoryId": -1 },
+        { "name": "폐차장", "categoryId": -1 },
+        { "name": "기타 대형 공간", "categoryId": -1 }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "야외",
+      "content": [
+        { "name": "전체", "categoryId": -1 },
+        { "name": "옥상", "categoryId": -1 },
+        { "name": "정원", "categoryId": -1 },
+        { "name": "공터", "categoryId": -1 },
+        { "name": "캠핑장", "categoryId": -1 },
+        { "name": "기타 야외 장소", "categoryId": -1 }
+      ]
+    }
+  ]
+}

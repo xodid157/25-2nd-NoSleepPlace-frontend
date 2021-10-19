@@ -1,0 +1,244 @@
+{
+  "result": [
+    {
+      "id": 1,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 7명",
+      "city": "서울",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 2,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 16000,
+      "capacity": "기본 3명",
+      "city": "경기",
+      "parking": "주차 5대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 3,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 56000,
+      "capacity": "기본 4명",
+      "city": "대전",
+      "parking": "주차 2대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 4,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 9명",
+      "city": "대전",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 5,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 8명",
+      "city": "대전",
+      "parking": "주차 7대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 6,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 2명",
+      "city": "대전",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 7,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "빈티지",
+      "price": 36000,
+      "capacity": "기본 2명",
+      "city": "경기",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 8,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "빈티지",
+      "price": 46000,
+      "capacity": "기본 3명",
+      "city": "제천",
+      "parking": "주차 1대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 9,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "빈티지",
+      "price": 66000,
+      "capacity": "기본 5명",
+      "city": "대전",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 10,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "헬스장",
+      "price": 16000,
+      "capacity": "기본 7명",
+      "city": "충북",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 11,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "헬스장",
+      "price": 26000,
+      "capacity": "기본 6명",
+      "city": "서울",
+      "parking": "주차 2대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 12,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "헬스장",
+      "price": 66000,
+      "capacity": "기본 2명",
+      "city": "대전",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 13,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "스포츠",
+      "price": 96000,
+      "capacity": "기본 9명",
+      "city": "대전",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 13,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "스포츠",
+      "price": 86000,
+      "capacity": "기본 2명",
+      "city": "대전",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 14,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "스포츠",
+      "price": 66000,
+      "capacity": "기본 4명",
+      "city": "대전",
+      "parking": "주차 2대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 15,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "스포츠",
+      "price": 96000,
+      "capacity": "기본 5명",
+      "city": "대전",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 16,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "스포츠",
+      "price": 96000,
+      "capacity": "기본 8명",
+      "city": "경기",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 17,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "아파트",
+      "price": 96000,
+      "capacity": "기본 8명",
+      "city": "경기",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 18,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "아파트",
+      "price": 96000,
+      "capacity": "기본 8명",
+      "city": "경기",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    },
+    {
+      "id": 19,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "아파트",
+      "price": 96000,
+      "capacity": "기본 8명",
+      "city": "경기",
+      "parking": "주차 6대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+      ]
+    }
+  ]
+}
