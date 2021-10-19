@@ -1,0 +1,46 @@
+{
+  "result": [
+    {
+      "id": 1,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 7명",
+      "city": "서울",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80",
+        "https://images.unsplash.com/photo-1536437155202-feece465c323?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3387&q=80",
+        "https://images.unsplash.com/photo-1471476730017-8169d050fa19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1010&q=80"
+      ]
+    },
+    {
+      "id": 2,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 7명",
+      "city": "서울",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80",
+        "https://images.unsplash.com/photo-1536437155202-feece465c323?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3387&q=80",
+        "https://images.unsplash.com/photo-1471476730017-8169d050fa19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1010&q=80"
+      ]
+    },
+    {
+      "id": 3,
+      "place_name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "category": "주택",
+      "price": 66000,
+      "capacity": "기본 7명",
+      "city": "서울",
+      "parking": "주차 3대 가능",
+      "url": [
+        "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80",
+        "https://images.unsplash.com/photo-1536437155202-feece465c323?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3387&q=80",
+        "https://images.unsplash.com/photo-1471476730017-8169d050fa19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1010&q=80"
+      ]
+    }
+  ]
+}
