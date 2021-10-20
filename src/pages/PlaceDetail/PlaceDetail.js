@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PlaceIntroduce from './components/PlaceIntroduce';
 import PlaceRule from './components/PlaceRule';
@@ -7,42 +7,47 @@ import Surround from './components/Surround';
 import Reserve from './components/Reserve';
 import StickerWrap from './components/StickerWrap';
 
-import 'react-datepicker/dist/react-datepicker.css';
-
-export default function PlaceDetail({ match }) {
-  const [category, setCategory] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(`http://10.58.1.10:8000/places/${match.params.id}`)
-  //     .then(res => res.json())
-  //     .then(res => setCategory(res.result));
-  // }, []);
-
-  useEffect(() => {
-    fetch(`/data/placeDetail.json`)
-      .then(res => res.json())
-      .then(res => setCategory(res.result[0]));
-  }, []);
-
+export default function PlaceDetail({
+  category,
+  handleReservation,
+  handleDate,
+  handleMonth,
+  month,
+  handlePath,
+  handlePersonMinus,
+  handlePersonPlus,
+  personPlus,
+  personMinus,
+  personNums,
+}) {
   return (
     <Container>
       <PlaceName>
         <CategoryNLocal>아파트 . 서울</CategoryNLocal>
         <h1>{category.place_name}</h1>
       </PlaceName>
-
       <RowContainer>
         <LeftRow>
+          <img alt="placePics" src={category.url} />
           <PlaceIntroduce category={category} />
           <PlaceRule />
           <Local />
-
           <Surround />
         </LeftRow>
-
         <RightRow>
-          <Reserve category={category} />
-
+          <Reserve
+            category={category}
+            handleReservation={handleReservation}
+            handleDate={handleDate}
+            handleMonth={handleMonth}
+            handlePath={handlePath}
+            handlePersonMinus={handlePersonMinus}
+            handlePersonPlus={handlePersonPlus}
+            personPlus={personPlus}
+            personMinus={personMinus}
+            month={month}
+            personNums={personNums}
+          />
           <LikeShare>
             <button>관심장소</button>
             <button>공유하기</button>
@@ -50,7 +55,6 @@ export default function PlaceDetail({ match }) {
           <StickerWrap />
         </RightRow>
       </RowContainer>
-      {/* <이장소와함께봤어요 /> */}
     </Container>
   );
 }
@@ -58,6 +62,7 @@ export default function PlaceDetail({ match }) {
 const Container = styled.div`
   width: 1160px;
   margin: 0 auto 40px;
+  padding-top: 50px;
 `;
 
 const CategoryNLocal = styled.div`
@@ -80,6 +85,13 @@ const RowContainer = styled.div`
 
 const LeftRow = styled.div`
   width: 720px;
+
+  img {
+    margin-bottom: 40px;
+    width: 661px;
+    height: 455px;
+    border-radius: 9px;
+  }
 `;
 
 const RightRow = styled.div``;
