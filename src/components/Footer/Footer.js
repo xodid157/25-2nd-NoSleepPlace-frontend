@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <FooterBox>
-        <div>
+        <FooterContainer>
           <FooterLeft>
             <span>사업자정보확인</span>
             <span>개인정보처리방침</span>
@@ -29,29 +29,29 @@ export default class Footer extends Component {
             </span>
             <Mutual>© nosleepfactory Inc.</Mutual>
           </FooterRight>
-        </div>
+        </FooterContainer>
       </FooterBox>
     );
   }
 }
 
 const FooterBox = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   display: flex;
+  justify-content: center;
   background-color: #fafbfb;
+`;
 
-  div {
-    display: flex;
-    padding: 1.2em 4.5em;
-    height: 310px;
-  }
+const FooterContainer = styled.div`
+  display: flex;
+  margin-right: 4.2em;
+  padding: 1em 4em;
+  height: 310px;
 `;
 
 const FooterLeft = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 1.2em 4.5em;
 
   span {
     padding: 0.6em 0;
@@ -70,6 +70,7 @@ const FooterRight = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 0.2em;
+  padding: 1.2em 4.5em;
 
   p,
   span {
