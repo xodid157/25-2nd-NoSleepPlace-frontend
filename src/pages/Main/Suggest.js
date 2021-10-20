@@ -10,7 +10,7 @@ export default class SimpleSlider extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/placeDetail.json')
+    fetch(`http://10.58.1.124:8000/places?`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -74,6 +74,8 @@ const SliderWrap = styled.div`
   img {
     width: 270px;
     border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -104,6 +106,7 @@ const CategoryNLocal = styled.div`
 
 const InfoTitle = styled.div`
   padding-bottom: 40px;
+  height: 60px;
   margin-bottom: 20px;
   border-bottom: 1px solid #e1e5e4;
 `;

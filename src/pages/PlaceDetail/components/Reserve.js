@@ -1,16 +1,61 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PersonBtn from './PersonBtn';
 import DatePick from './DatePick';
 
-export default function Reserve({ category }) {
+export default function Reserve({
+  category,
+  handleReservation,
+  handleMonth,
+  month,
+  handleDate,
+  handlePath,
+  handlePersonMinus,
+  handlePersonPlus,
+  personPlus,
+  personMinus,
+  personNums,
+}) {
   const [isCalendarOpen, setCalendarOpen] = useState(false);
   const [ReserveInfo, setReserveInfo] = useState([]);
+  const [isPersonOpen, setIsPersonOpen] = useState(false);
+  // const handleCalendar = () => {
+  //   fetch(`/data/ReserveDate.json`)
+  //     .then(res => res.json())
+  //     .then(res => setReserveInfo(res.result[0]));
+  // const happyNewYear = new Date();
+  // const year = happyNewYear.getFullYear();
+  // const month = happyNewYear.getMonth() + 1;
+  // const date = happyNewYear.getDate();
+  // const hour = happyNewYear.getHours();
+  // const minutes = happyNewYear.getMinutes();
+
+  // const timeInput = `${year}-${month >= 10 ? month : '0' + month}-${
+  //   date >= 10 ? date : '0' + date
+  // }T${hour}:${minutes}:${'00'}`;
+
+  // const handleCalendar = () => {
+  //   fetch(`http://10.58.2.43:8000/places/1/calendar?time=${timeInput}`, {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setReserveInfo(res.result[0]));
+
+  //   return setCalendarOpen(prev => !prev);
+  // };
 
   const handleCalendar = () => {
-    fetch(`/data/ReserveDate.json`)
+    fetch(`/data/ReserveDate.json`, {
+      method: 'GET',
+    })
       .then(res => res.json())
-      .then(res => setReserveInfo(res.result[0]));
+      .then(res => setReserveInfo(res.result));
+
     return setCalendarOpen(prev => !prev);
+  };
+
+  const handlePersonNum = () => {
+    setIsPersonOpen(!isPersonOpen);
   };
 
   return (
@@ -30,14 +75,37 @@ export default function Reserve({ category }) {
       <ScheduleNPersons>
         <h4>스케줄</h4>
         <button onClick={handleCalendar}>스케줄을 입력하세요</button>
-        {isCalendarOpen && <DatePick ReserveInfo={ReserveInfo} />}
+        {isCalendarOpen && (
+          <DatePick
+            ReserveInfo={ReserveInfo}
+            handleReservation={handleReservation}
+            handleMonth={handleMonth}
+            handleDate={handleDate}
+            month={month}
+          />
+        )}
         <h4>총인원</h4>
-        <button>총인원 수를 입력하세요</button>
+        <Persons>
+          <button onClick={handlePersonNum}>
+            {personNums === 0
+              ? '총인원 수를 입력하세요'
+              : ` 총 ${personNums}명`}
+          </button>
+          {isPersonOpen && (
+            <PersonBtn
+              handlePersonMinus={handlePersonMinus}
+              handlePersonPlus={handlePersonPlus}
+              personPlus={personPlus}
+              personMinus={personMinus}
+              handlePersonNum={handlePersonNum}
+            />
+          )}
+        </Persons>
       </ScheduleNPersons>
 
       <ReserveBtn>
         <NowReserve>
-          <button>지금 예약 요청하기</button>
+          <button onClick={handlePath}>지금 예약 요청하기</button>
         </NowReserve>
         <ReserveCall>
           <button>전화 문의</button>
@@ -53,6 +121,8 @@ const Reservation = styled.div`
   border: 1px solid #cccfd1;
   border-radius: 10px;
 `;
+
+const Persons = styled.div``;
 
 const TagWrap = styled.div``;
 
@@ -86,6 +156,7 @@ const Won = styled.div`
 `;
 
 const ScheduleNPersons = styled.div`
+  position: relative;
   margin-top: 30px;
 
   h4 {
@@ -126,7 +197,8 @@ const ReserveBtn = styled.div`
 const NowReserve = styled.div`
   button {
     width: 220px;
-    color: #acadaf;
+    background-color: #3c81f6;
+    color: white;
   }
 `;
 const ReserveCall = styled.div`

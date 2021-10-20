@@ -5,46 +5,94 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
+import format from 'date-fns/format';
 
-const DatePick = ReserveInfo => {
-  const [startDate, setStartDate] = useState(
-    setHours(setMinutes(new Date(), 0), '')
-  );
+const initialTime = setHours(setMinutes(new Date(), 0), '');
+const initialEndTime = setHours(setMinutes(new Date(), 0), '');
+
+const DatePick = ({
+  ReserveInfo,
+  handleReservation,
+  handleMonth,
+  handleDate,
+  month,
+}) => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [startTime, setStartTime] = useState(initialTime);
+  const [endTime, setEndTime] = useState(initialEndTime);
+
+  const formatDateToArr = ReserveInfo.map(reservation => {
+    const DATE_FORMAT = 'yyyy,MM,dd,HH';
+
+    const [year, month, day] = format(
+      new Date(reservation.start_time),
+      DATE_FORMAT
+    ).split(',');
+
+    return [year, month, day];
+  });
+
+  // console.log('for', formatDateToArr);
 
   const filterPassedTime = time => {
     const currentDate = new Date();
-    const selectedDate = new Date(time);
-    return currentDate.getTime() < selectedDate.getTime();
+    const timeTableDate = new Date(time);
+    const isPassedTimeByNow = currentDate.getHour() < timeTableDate.getHour();
+
+    // const aa = formatDateToArr.every(formatDate => {
+    //   const [year, month, day, datetime] = formatDate;
+
+    //   const reserveTime = new Date(year, month - 1, day, datetime); // 유저가 예약한 시간
+
+    //   return timeTableDate.getTime() !== reserveTime.getTime();
+    // });
+
+    const [year, month, day] = formatDateToArr[0];
+
+    const reserveTime = new Date(year, month - 1, day); // 유저가 예약한 시간
+
+    const isAlreadyReserved = timeTableDate.getTime() !== reserveTime.getTime();
+
+    // console.log('time', time);
+    // console.log('reservedTime', reserveTime);
+    // console.log('aa', aa);
+    // console.log('isAlreadyReserved', isAlreadyReserved);
+    // console.log('ispass', isPassedTimeByNow);
+
+    return isPassedTimeByNow && isAlreadyReserved;
+
+    // isAlreadyReserve -> true ->
+    // isAlreadyReserve -> false ->
   };
 
-  // const happyNewYear = new Date();
-  // const year = happyNewYear.getFullYear();
-  // const month = happyNewYear.getMonth() + 1;
-  // const date = happyNewYear.getDate();
-  // const hour = happyNewYear.getHours();
-  // const minutes = happyNewYear.getMinutes();
+  const reservationTime = {
+    reservation: [
+      format(startDate, 'yyyy,MM,dd'),
+      format(startTime, 'HH'),
+      format(endTime, 'HH'),
+    ],
+  };
 
-  // const ReserveInfo = `${year}-${month >= 10 ? month : '0' + month}-${
-  //   date >= 10 ? date : '0' + date
-  // } ${hour}:${minutes}`;
-
-  // console.log(ReserveInfo);
+  handleReservation(reservationTime.reservation[0]);
+  handleMonth(reservationTime.reservation[1]);
+  handleDate(reservationTime.reservation[2]);
 
   return (
     <CalendarWrap>
       <ReserveCalendar
         locale={ko}
         selected={startDate}
-        onChange={date => setStartDate(date)}
+        onChange={setStartDate}
         inline
         minDate={new Date()}
       />
       <TimeWrap>
         <StartEnd>
           <p>시작 시간</p>
+
           <Time
-            selected={startDate}
-            onChange={date => setStartDate(date)}
+            selected={startTime}
+            onChange={time => setStartTime(time)}
             showTimeSelect
             showTimeSelectOnly
             timeIntervals={60}
@@ -54,14 +102,14 @@ const DatePick = ReserveInfo => {
           />
           <p>종료 시간</p>
           <Time
-            selected={startDate}
-            onChange={date => setStartDate(date)}
+            selected={endTime}
+            onChange={time => setEndTime(time)}
             showTimeSelect
             showTimeSelectOnly
             timeIntervals={60}
             timeCaption="Time"
             dateFormat="h aa"
-            filterTime={filterPassedTime}
+            filterTime={!new Date() && filterPassedTime}
           />
         </StartEnd>
         <Completed>
@@ -77,15 +125,12 @@ export default DatePick;
 const CalendarWrap = styled.div`
   display: flex;
   position: absolute;
-  padding: 17px 0 0 17px;
-  /* right: 207px; */
-  /* width: 539px; */
-  /* height: 523px; */
-  right: 0;
-  width: 360px;
+  padding: 17px 0 0 25px;
+  left: -34px;
+  width: 400px;
   height: 300px;
-  border: 1px solid red;
-  border-radius: 8px;
+  border: 1px solid #cccfd1;
+  border-top: none;
   background-color: white;
   z-index: 9;
 `;
@@ -97,6 +142,7 @@ const ReserveCalendar = styled(DatePicker)`
 const TimeWrap = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 `;
 
 const StartEnd = styled.div`
