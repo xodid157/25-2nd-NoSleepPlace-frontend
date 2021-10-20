@@ -1,7 +1,11 @@
 {
-  "id": 1,
-  "ninkname": "태양",
-  "profile_image": "https://img.hourplace.co.kr/place/user/30105/2021/09/22/88789efa-fc5c-47c6-a0fc-ffce26e41f67?s=1440x960&t=cover&q=80",
-  "email": "xodid157@naver.com",
-  "age_range": "20~29"
+  "result": [
+    {
+      "id": 1,
+      "ninkname": "태양",
+      "profile_image": "https://img.hourplace.co.kr/place/user/30105/2021/09/22/88789efa-fc5c-47c6-a0fc-ffce26e41f67?s=1440x960&t=cover&q=80",
+      "email": "xodid157@naver.com",
+      "age_range": "20~29"
+    }
+  ]
 }
