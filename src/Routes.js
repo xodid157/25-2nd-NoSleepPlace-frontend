@@ -5,6 +5,7 @@ import Nav from './components/Nav/Nav';
 import styled from 'styled-components';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
+import PlaceDetail from './pages/PlaceDetail/PlaceDetail';
 
 class Routes extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class Routes extends React.Component {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/PlaceDetail/" component={PlaceDetail} />
         </Switch>
         <Footer />
       </Router>
