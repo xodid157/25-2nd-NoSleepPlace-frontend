@@ -12,6 +12,8 @@ export default class NavMain extends Component {
       kakaoList,
       isInfoBytton,
       handleInfoBytton,
+      handleLogInButton,
+      kakaoLogOut,
     } = this.props;
 
     return (
@@ -45,11 +47,15 @@ export default class NavMain extends Component {
             ) : (
               <LogOut>
                 <DifferentColor>장소 등록</DifferentColor>
-                <DifferentColor>로그인</DifferentColor>
+                <DifferentColor onClick={handleLogInButton}>
+                  로그인
+                </DifferentColor>
               </LogOut>
             )}
           </CategoryBox>
-          {isInfoBytton && <LogInInfo kakaoList={kakaoList} />}
+          {isInfoBytton && (
+            <LogInInfo kakaoList={kakaoList} kakaoLogOut={kakaoLogOut} />
+          )}
         </NavContent>
       </Nav>
     );
@@ -61,7 +67,7 @@ const Nav = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1;
+  z-index: 50;
   display: flex;
   justify-content: center;
   align-items: center;

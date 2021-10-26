@@ -1,28 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default class LogInInfo extends Component {
+class LogInInfo extends React.Component {
   render() {
-    const { kakaoList } = this.props;
+    const { kakaoList, kakaoLogOut } = this.props;
 
     return (
       <LogInInfoBox>
-        <KakaoNinkName>{kakaoList.ninkname}</KakaoNinkName>
+        <KakaoNinkName>{kakaoList.nickname}</KakaoNinkName>
         <BorderLine />
         <InfoContent>프로필</InfoContent>
         <InfoContent>메시지</InfoContent>
-        <InfoContent>예약내역</InfoContent>
+        <Link to="/reservationDetails">
+          <InfoContent>예약내역</InfoContent>
+        </Link>
         <BorderLine />
         <InfoContent>포인트</InfoContent>
         <InfoContent>쿠폰</InfoContent>
         <InfoContent>친구 초대</InfoContent>
         <BorderLine />
         <InfoContent>설정</InfoContent>
-        <InfoContent>로그아웃</InfoContent>
+        <InfoContent onClick={kakaoLogOut}>로그아웃</InfoContent>
       </LogInInfoBox>
     );
   }
 }
+export default LogInInfo;
 
 const LogInInfoBox = styled.div`
   position: absolute;
@@ -36,6 +40,11 @@ const LogInInfoBox = styled.div`
   box-shadow: rgb(0 0 0 / 10%) 2px 2px 8px 0px;
   border: 1px solid rgb(239, 243, 245);
   background-color: white;
+
+  a {
+    padding: 12px 0;
+    text-decoration: none;
+  }
 `;
 
 const KakaoNinkName = styled.span`
@@ -54,8 +63,9 @@ const InfoContent = styled.span`
   padding: 12px 0;
   color: #95989b;
   font-size: 15px;
+  cursor: pointer;
 
-  &:hover {
+  line &:hover {
     background-color: #f5f7f8;
   }
 `;

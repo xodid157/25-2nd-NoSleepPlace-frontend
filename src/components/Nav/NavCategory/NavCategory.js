@@ -1,19 +1,50 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default class NavCategory extends Component {
+  handleSearchCategory = e => {
+    if (e === '주택') {
+      return 1;
+    } else if (e === '아파트') {
+      return 2;
+    } else if (e === '빈티지') {
+      return 3;
+    } else if (e === '키친') {
+      return 4;
+    } else if (e === '카페') {
+      return 5;
+    } else if (e === '식당') {
+      return 6;
+    } else if (e === '편의점') {
+      return 7;
+    } else if (e === '스포츠') {
+      return 8;
+    }
+    return 0;
+  };
+
   render() {
-    const { categotyList } = this.props;
+    const { categotyList, handleCategotyButton } = this.props;
 
     return (
       <NavCategoryBox>
         <CategoryContent>
           {categotyList.map((content, index) => (
             <ContentList key={index}>
-              <li>{content.title}</li>
+              <Link to={`/places?menu=${content.id}`}>
+                <li onClick={handleCategotyButton}>{content.title}</li>
+              </Link>
               <ItemBox>
                 {content.categoryList.map((content, index) => (
-                  <span key={index}>{content}</span>
+                  <Link
+                    to={`/places?category=${this.handleSearchCategory(
+                      content
+                    )}`}
+                    key={index}
+                  >
+                    <span onClick={handleCategotyButton}>{content}</span>
+                  </Link>
                 ))}
               </ItemBox>
             </ContentList>
@@ -29,7 +60,7 @@ const NavCategoryBox = styled.div`
   top: 5em;
   right: 0;
   left: 0;
-  z-index: 1;
+  z-index: 20;
   display: flex;
   justify-content: center;
   padding-top: 0.65em;
@@ -41,20 +72,27 @@ const CategoryContent = styled.div`
   width: 100%;
   max-width: 1160px;
   font-size: 1.25em;
+
+  a {
+    margin: 0.3em 0;
+    text-decoration: none;
+  }
 `;
 
 const ContentList = styled.ul`
   margin: 0.4em 0 2em;
 
-  li {
-    margin: 0 0.2em 0.5em 0.5em;
-    padding: 0.4em 3em 0.3em 0;
-    font-weight: 600;
-    color: rgb(69, 75, 80);
-    cursor: pointer;
+  a {
+    li {
+      margin: 0 0.2em 0.5em 0.5em;
+      padding: 0.4em 3em 0.3em 0;
+      font-weight: 600;
+      color: rgb(69, 75, 80);
+      cursor: pointer;
 
-    &:hover {
-      background-color: #f5f7f8;
+      &:hover {
+        background-color: #f5f7f8;
+      }
     }
   }
 `;

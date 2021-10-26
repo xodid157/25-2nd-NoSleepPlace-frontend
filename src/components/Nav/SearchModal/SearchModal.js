@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default class SearchModal extends Component {
+class SearchModal extends Component {
   constructor() {
     super();
     this.state = {
@@ -21,6 +22,13 @@ export default class SearchModal extends Component {
 
   render() {
     const { searchList } = this.state;
+    const {
+      handleChange,
+      filterSearch,
+      userInput,
+      handleSerchButton,
+      handleEnter,
+    } = this.props;
 
     return (
       <Serch>
@@ -29,11 +37,28 @@ export default class SearchModal extends Component {
             <i className="fas fa-search" />
             <i className="fas fa-camera" />
           </IconeBox>
-          <input placeholder="어떤 장소에서 콘텐츠를 만들고 싶으세요?" />
+          <input
+            placeholder="어떤 장소에서 콘텐츠를 만들고 싶으세요?"
+            onChange={handleChange}
+            onKeyPress={handleEnter}
+          />
         </SearchBox>
         <Popularity>
+          {userInput !== '' && (
+            <LiveSearchBox>
+              {filterSearch.map((content, index) => {
+                return (
+                  <Link to={`/places/${content.id}`} key={index}>
+                    <SearchContent key={index} onClick={handleSerchButton}>
+                      {content.place_name}
+                    </SearchContent>
+                  </Link>
+                );
+              })}
+            </LiveSearchBox>
+          )}
           <div>
-            <span>인기 검색어</span>
+            <span onClick={this.handleEnter}>인기 검색어</span>
             <ul>
               {searchList.popularity?.map((content, index) => (
                 <li key={index}>{content}</li>
@@ -46,10 +71,13 @@ export default class SearchModal extends Component {
   }
 }
 
+export default withRouter(SearchModal);
+
 const Serch = styled.div`
   position: fixed;
   right: 0;
   left: 0;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,5 +150,34 @@ const Popularity = styled.div`
       margin: 0 0.5em 0.7em 0;
       font-size: 14px;
     }
+  }
+`;
+const LiveSearchBox = styled.div`
+  position: relative;
+  top: -30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  max-width: 964px;
+  width: 100%;
+  padding: 0.7em 3em;
+  background-color: white;
+
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+  }
+`;
+
+const SearchContent = styled.p`
+  padding: 1em 0;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f7f8;
   }
 `;

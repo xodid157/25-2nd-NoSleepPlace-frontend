@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 const { Kakao } = window;
 
-function Login() {
-  const [visible, setVisible] = useState(true);
+function Login({ handleLogInButton, handleLogInBox, kakaoLogIn }) {
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed;
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
+
   const kakaoLogin = () => {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch('http://10.58.4.47:8000/users/account/kakao', {
+        fetch('http://10.58.1.136:8000/users/account/kakao', {
           method: 'POST',
           headers: { Authorization: authObj.access_token },
         })
@@ -15,8 +27,10 @@ function Login() {
           .then(res => {
             if (res.access_token) {
               localStorage.setItem('token', res.access_token);
+              handleLogInButton();
+              handleLogInBox();
+              kakaoLogIn();
               alert('환영해요!');
-              close();
             } else if (!res.access_token) {
               alert('다시 회원가입하세요!');
             }
@@ -25,32 +39,26 @@ function Login() {
     });
   };
 
-  const close = () => {
-    setVisible(false);
-  };
-
   return (
     <Display>
-      {visible && (
-        <>
-          <Black />
-          <LoginBox>
-            <LoginTop>
-              <div>로그인</div>
-              <CloseBtn onClick={close}>X</CloseBtn>
-            </LoginTop>
-            <NosleepplaceLogo>
-              <img alt="nosleepplaceLogo" src="/images/nosleep.png" />
-            </NosleepplaceLogo>
-            <LoginBtn>
-              <LoginLetter onClick={kakaoLogin}>
-                <img alt="logo" src="/images/kakaologo.png" width="30px" />
-              </LoginLetter>
-            </LoginBtn>
-            <Explain>내가 찾던 촬영 장소, 모두 여기에</Explain>
-          </LoginBox>
-        </>
-      )}
+      <>
+        <Black onClick={handleLogInButton} />
+        <LoginBox>
+          <LoginTop>
+            <div>로그인</div>
+            <CloseBtn onClick={handleLogInButton}>X</CloseBtn>
+          </LoginTop>
+          <NosleepplaceLogo>
+            <img alt="nosleepplaceLogo" src="/images/nosleep.png" />
+          </NosleepplaceLogo>
+          <LoginBtn>
+            <LoginLetter onClick={kakaoLogin}>
+              <img alt="logo" src="/images/kakaologo.png" width="30px" />
+            </LoginLetter>
+          </LoginBtn>
+          <Explain>내가 찾던 촬영 장소, 모두 여기에</Explain>
+        </LoginBox>
+      </>
     </Display>
   );
 }
@@ -63,7 +71,7 @@ const Black = styled.div`
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 11;
   background-color: black;
   opacity: 0.6;
 `;
@@ -129,13 +137,14 @@ const LoginBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   border-radius: 12px;
   background-color: rgb(255, 255, 255);
+  z-index: 20;
 `;
 const Explain = styled.div`
   position: relative;
