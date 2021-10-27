@@ -1,0 +1,30 @@
+{
+  "result": [
+    {
+      "book_id": 3,
+      "name": "마루비 성산 - 80년대 주택을 개조한 빈티지 스튜디오 1F ",
+      "image": "https://images.unsplash.com/photo-1536437075651-01d675529a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80",
+      "content_type": "CF 촬영",
+      "content_info": "촬영 컨셉 및 콘티 등 여러가지 내용",
+      "head_count": 4,
+      "start_time": "2021년 10월 28일 05:00",
+      "end_time": "06:00",
+      "usage_time": 3,
+      "total_price": 224000,
+      "status": "CONFIRMED"
+    },
+    {
+      "book_id": 7,
+      "name": "아그레라운지 [홀 대관]",
+      "image": "https://images.unsplash.com/photo-1554941829-202a0b2403b8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80",
+      "content_type": "CF 촬영",
+      "content_info": "촬영 컨셉 및 콘티 등 여러가지 내용",
+      "head_count": 4,
+      "start_time": "2021년 10월 30일 05:00",
+      "end_time": "06:00",
+      "usage_time": 2,
+      "total_price": 224000,
+      "status": "PENDING"
+    }
+  ]
+}

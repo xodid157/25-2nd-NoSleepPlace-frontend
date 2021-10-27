@@ -12,7 +12,7 @@ export default function Reservation({ match, history }) {
   const [inputs, setInputs] = useState({
     contentType: '',
     contentText: '',
-    conti: '없음',
+    conti: '',
     detailPlace: '',
     countPeople: '',
     equipment: '',
@@ -27,7 +27,7 @@ export default function Reservation({ match, history }) {
       },
     })
       .then(res => res.json())
-      .then(res => setKakaoList(res.result[0]));
+      .then(result => setKakaoList(result));
   }, []);
 
   const goToReservation = () => {
@@ -66,7 +66,7 @@ export default function Reservation({ match, history }) {
   };
 
   const goNextPage = () => {
-    if (countButton === 0 || countButton === 2 || inputsKeys !== '') {
+    if (countButton === 0 || countButton === 2 || inputs !== '') {
       setCountButton(countButton + 1);
     } else {
       alert('필수 내용들을 입력해 주세요.');
@@ -85,14 +85,6 @@ export default function Reservation({ match, history }) {
       car: '',
     });
   };
-
-  const inputsKeys =
-    inputs.contentType &&
-    inputs.contentText &&
-    inputs.detailPlace &&
-    inputs.countPeople &&
-    inputs.equipment &&
-    inputs.car;
 
   return (
     <ReservationMain>
