@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Footer from './components/Footer/Footer';
 import PlaceDetail from './pages/PlaceDetail/PlaceDetail';
 import Reservation from './pages/Reservation/Reservation';
+import ReservationDetails from './pages/ReservationDetails/ReservationDetails';
 
 class Routes extends React.Component {
   render() {
@@ -17,6 +18,11 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/PlaceDetail/" component={PlaceDetail} />
           <Route exact path="/reservation" component={Reservation} />
+          <Route
+            exact
+            path="/reservationDetails/:name"
+            component={ReservationDetails}
+          />
         </Switch>
         <Footer />
       </Router>
