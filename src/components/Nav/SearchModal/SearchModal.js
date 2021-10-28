@@ -48,7 +48,7 @@ class SearchModal extends Component {
             <LiveSearchBox>
               {filterSearch.map((content, index) => {
                 return (
-                  <Link to={`/places/${content.id}`} key={index}>
+                  <Link to={`/placeDetail/${content.id}`} key={index}>
                     <SearchContent key={index} onClick={handleSerchButton}>
                       {content.place_name}
                     </SearchContent>
@@ -70,7 +70,6 @@ class SearchModal extends Component {
     );
   }
 }
-
 export default withRouter(SearchModal);
 
 const Serch = styled.div`
