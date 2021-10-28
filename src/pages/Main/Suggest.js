@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Link } from 'react-router-dom';
 
 export default class SimpleSlider extends Component {
   state = {
@@ -10,7 +11,7 @@ export default class SimpleSlider extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/placeDetail.json')
+    fetch('http://52.79.51.199:8000/places')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -29,7 +30,9 @@ export default class SimpleSlider extends Component {
             ({ id, place_name, category, capacity, price, parking, url }) => (
               <React.Fragment key={id}>
                 <Thumbnail>
-                  <img alt="places" src={url[0]} />
+                  <Link to={`/placeDetail/${id}`}>
+                    <img alt="places" src={url[0]} />
+                  </Link>
                 </Thumbnail>
                 <PlaceInfo>
                   <CategoryNLocal>
@@ -73,6 +76,8 @@ const SliderWrap = styled.div`
 
   img {
     width: 270px;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
   }
 `;
@@ -103,6 +108,7 @@ const CategoryNLocal = styled.div`
 `;
 
 const InfoTitle = styled.div`
+  height: 57px;
   padding-bottom: 40px;
   margin-bottom: 20px;
   border-bottom: 1px solid #e1e5e4;

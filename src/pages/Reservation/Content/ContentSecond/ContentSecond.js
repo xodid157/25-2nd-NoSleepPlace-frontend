@@ -2,17 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { CONTENT_SECOUND } from '../../data';
 
-export default function ContentSecond({
-  handlecontentType,
-  handleContentText,
-  handleConti,
-  handleDetailPlace,
-  handleCountPeople,
-  handleEquipment,
-  handleCar,
-  handleInput,
-  inputs,
-}) {
+export default function ContentSecond({ handleInput }) {
   return (
     <Main>
       <MainContainer>

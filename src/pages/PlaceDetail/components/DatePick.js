@@ -16,6 +16,7 @@ const DatePick = ({
   handleMonth,
   handleDate,
   month,
+  handleCalendar,
 }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [startTime, setStartTime] = useState(initialTime);
@@ -32,38 +33,33 @@ const DatePick = ({
     return [year, month, day];
   });
 
-  // console.log('for', formatDateToArr);
+  console.log('for', formatDateToArr);
 
   const filterPassedTime = time => {
     const currentDate = new Date();
     const timeTableDate = new Date(time);
-    const isPassedTimeByNow = currentDate.getHour() < timeTableDate.getHour();
-
+    const isPassedTimeByNow = currentDate.getTime() < timeTableDate.getTime();
     // const aa = formatDateToArr.every(formatDate => {
-    //   const [year, month, day, datetime] = formatDate;
-
-    //   const reserveTime = new Date(year, month - 1, day, datetime); // 유저가 예약한 시간
-
-    //   return timeTableDate.getTime() !== reserveTime.getTime();
-    // });
-
-    const [year, month, day] = formatDateToArr[0];
-
-    const reserveTime = new Date(year, month - 1, day); // 유저가 예약한 시간
-
+    const [year, month, day, datetime] = formatDateToArr;
+    const reserveTime = new Date(year, month - 1, day, datetime); // 유저가 예약한 시간
     const isAlreadyReserved = timeTableDate.getTime() !== reserveTime.getTime();
 
-    // console.log('time', time);
-    // console.log('reservedTime', reserveTime);
-    // console.log('aa', aa);
-    // console.log('isAlreadyReserved', isAlreadyReserved);
-    // console.log('ispass', isPassedTimeByNow);
-
     return isPassedTimeByNow && isAlreadyReserved;
-
-    // isAlreadyReserve -> true ->
-    // isAlreadyReserve -> false ->
   };
+
+  // const [year, month, day] = formatDateToArr[0];
+  // const reserveTime = new Date(year, month - 1, day); // 유저가 예약한 시간
+  // const isAlreadyReserved = timeTableDate.getTime() !== reserveTime.getTime();
+  // console.log('time', time);
+  // console.log('reservedTime', reserveTime);
+  // console.log('aa', aa);
+  // console.log('isAlreadyReserved', isAlreadyReserved);
+  // console.log('ispass', isPassedTimeByNow);
+  // console.log(currentDate);
+  // return isPassedTimeByNow && isAlreadyReserved;
+  // isAlreadyReserve -> true ->
+  // isAlreadyReserve -> false ->
+  // };
 
   const reservationTime = {
     reservation: [
@@ -76,8 +72,7 @@ const DatePick = ({
   handleReservation(reservationTime.reservation[0]);
   handleMonth(reservationTime.reservation[1]);
   handleDate(reservationTime.reservation[2]);
-  console.log(reservationTime.reservation[0]);
-
+  // console.log(reservationTime.reservation[0]);
   return (
     <CalendarWrap>
       <ReserveCalendar
@@ -110,11 +105,11 @@ const DatePick = ({
             timeIntervals={60}
             timeCaption="Time"
             dateFormat="h aa"
-            filterTime={!new Date() && filterPassedTime}
+            filterTime={filterPassedTime}
           />
         </StartEnd>
         <Completed>
-          <button>완료</button>
+          <button onClick={handleCalendar}>완료</button>
         </Completed>
       </TimeWrap>
     </CalendarWrap>

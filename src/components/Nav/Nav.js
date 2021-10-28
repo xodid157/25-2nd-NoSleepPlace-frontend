@@ -30,7 +30,7 @@ class Nav extends Component {
         })
       );
 
-    fetch(`http://10.58.1.124:8000/places?`)
+    fetch(`http://52.79.51.199:8000/places?`)
       .then(res => res.json())
       .then(res =>
         this.setState({
@@ -114,7 +114,7 @@ class Nav extends Component {
   };
 
   kakaoLogIn = () => {
-    fetch('http://10.58.1.136:8000/users/profile', {
+    fetch('http://52.79.51.199:8000/users/profile', {
       headers: {
         Authorization: localStorage.getItem('token'),
       },

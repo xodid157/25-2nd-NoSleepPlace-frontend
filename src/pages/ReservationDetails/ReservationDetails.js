@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import CategotyBox from './CategotyBox/CategotyBox';
 import Content from './Content/Content';
 import { CATEGOTY_CONTENT } from './Deta';
 
@@ -9,7 +10,7 @@ function ReservationDetails({ match }) {
 
   const location = useLocation();
   useEffect(() => {
-    fetch(`http://10.58.1.136:8000/books${location.search}`, {
+    fetch(`http://52.79.51.199:8000/books${location.search}`, {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -19,19 +20,9 @@ function ReservationDetails({ match }) {
       .then(res => setContentList(res.result));
   }, [location.search]);
 
-  const handleMenuCategory = e => {
-    if (e === '대기중') {
-      return `status=PENDING`;
-    } else if (e === '지난내역') {
-      return 'status=COMPLETED';
-    } else if (e === '진행중') {
-      return 'status=CONFIRMED';
-    } else if (e === '취소') {
-      return 'status=CANCELLED';
-    } else if (e === '전체') {
-      return '';
-    }
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Main>
@@ -40,15 +31,9 @@ function ReservationDetails({ match }) {
           <TitleText>신청 예약</TitleText>
         </TitleBox>
         <CategotyContainer>
-          {CATEGOTY_CONTENT.map((content, index) => {
-            return (
-              <CategotyBox key={index}>
-                <Link to={`books?${handleMenuCategory(content.name)}`}>
-                  <CategotyContent>{content.name}</CategotyContent>
-                </Link>
-              </CategotyBox>
-            );
-          })}
+          {CATEGOTY_CONTENT.map((content, index) => (
+            <CategotyBox name={content.name} key={index} />
+          ))}
         </CategotyContainer>
         <ContentCategoty>
           <LeftBox>
@@ -116,25 +101,6 @@ const CategotyContainer = styled.div`
   a {
     text-decoration: none;
   }
-`;
-
-const CategotyBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 230px;
-  height: 40px;
-  border-radius: 4px;
-  cursor: pointer;
-
-  p {
-    color: #72787f;
-    font-size: 15px;
-  }
-`;
-
-const CategotyContent = styled.p`
-  font-size: 15px;
 `;
 
 const ContentCategoty = styled.div`

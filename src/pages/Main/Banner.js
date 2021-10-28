@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Banner() {
   return (
     <Container>
-      <Link to="place?">
+      <Link to="places?">
         <img alt="banner" src="/images/studio.jpg" />
         <Sentence>
           <p>

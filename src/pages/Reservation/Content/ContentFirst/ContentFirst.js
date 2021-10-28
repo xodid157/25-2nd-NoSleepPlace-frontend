@@ -8,7 +8,7 @@ export default function ContentFirst({ kakaoList }) {
         <MainContent>
           <UserInfo>
             <UserImg alt="kakaoImg" src={kakaoList.profile_image} />
-            <UserId>{kakaoList.ninkname}</UserId>
+            <UserId>{kakaoList.nickname}</UserId>
             <Count>진행 횟수 7</Count>
           </UserInfo>
           <InfoContainer>
@@ -17,8 +17,8 @@ export default function ContentFirst({ kakaoList }) {
               <span />
             </InfoTitle>
             <InfoTitle>
-              <span>이름</span>
-              <span>{kakaoList.ninkname}</span>
+              <span>닉네임</span>
+              <span>{kakaoList.nickname}</span>
             </InfoTitle>
             <InfoTitle>
               <span>이메일</span>

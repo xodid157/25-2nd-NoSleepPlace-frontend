@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Place from './Place';
 import queryString from 'query-string';
-import {
-  withRouter,
-  Link,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
-import Listpage from '../Listpage/Listpage';
+import Listpage from './Listpage/Listpage';
 
 function PlacelistDetail({ placelist, handleGotoSecond, match }) {
   const location = useLocation();
   const menuId = queryString.parse(location.search).menu;
-  const categoryId = queryString.parse(location.search).category;
+  // const categoryId = queryString.parse(location.search).category;
 
   const qs = menuId ? `?menu=${menuId}` : '?';
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ marginTop: '40px' }} />
+      <div style={{ marginTop: '10px' }} />
 
       <Wrap>
         {placelist.map(place => (
@@ -51,17 +44,17 @@ function PlacelistDetail({ placelist, handleGotoSecond, match }) {
         </CategoryDetail>
         <Wrapper>
           <Date>
-            <div>날짜</div>
-            <div>인원</div>
-            <div>가격</div>
-            <div>지역</div>
+            <span>날짜</span>
+            <span>인원</span>
+            <span>가격</span>
+            <span>지역</span>
           </Date>
           <Sort>
             <div>추천순</div>
           </Sort>
         </Wrapper>
 
-        <Listpage categoryId={categoryId} menuId={menuId} />
+        <Listpage />
       </div>
     </div>
   );
@@ -74,12 +67,12 @@ const Wrapper = styled.div`
 
 const Date = styled.div`
   display: flex;
-  gap: 10px;
-  div {
-    width: 60px;
+  justify-content: center;
+
+  span {
+    margin-right: 10px;
     border: 1px solid lightgrey;
-    border-radius: 3px;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
   }
 `;
@@ -110,6 +103,10 @@ const CategoryDetail = styled.div`
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
   font-size: 15px;
+
+  span {
+    color: black;
+  }
 `;
 
 export default withRouter(PlacelistDetail);

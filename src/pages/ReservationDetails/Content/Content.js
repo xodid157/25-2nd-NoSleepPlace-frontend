@@ -19,10 +19,10 @@ function Content({ contentList }) {
     <ContentBox>
       {contentList.map((content, index) => {
         return (
-          <Link to={`/places/${content.book_id}`} key={index}>
+          <Link to={`/placeDetail/${content.book_id}`} key={index}>
             <ContentContainer>
               <ContentNumberBox>
-                <NumberContent>{content.book_id}</NumberContent>
+                <NumberContent>{index + 1}</NumberContent>
               </ContentNumberBox>
               <ContentInfoBox>
                 <InfoImg alt="placeImg" src={content.image} />

@@ -17,12 +17,12 @@
       "name": "스튜디오",
       "thumbnail": "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80",
       "sub_categories": [
-        { "id": 1, "name": "빈티지" },
-        { "id": 2, "name": "자연광" },
-        { "id": 3, "name": "호리존" },
-        { "id": 4, "name": "유튜브" },
-        { "id": 5, "name": "단독주택형" },
-        { "id": 6, "name": "키친" }
+        { "id": 3, "name": "빈티지" },
+        { "id": 5, "name": "자연광" },
+        { "id": 6, "name": "호리존" },
+        { "id": 7, "name": "유튜브" },
+        { "id": 8, "name": "단독주택형" },
+        { "id": 4, "name": "키친" }
       ]
     },
     {
@@ -30,11 +30,11 @@
       "name": "상업공간",
       "thumbnail": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
       "sub_categories": [
-        { "id": 1, "name": "카페" },
-        { "id": 2, "name": "식당" },
-        { "id": 3, "name": "바/술집" },
-        { "id": 4, "name": "헬스장" },
-        { "id": 5, "name": "요가/필라테스" }
+        { "id": 5, "name": "카페" },
+        { "id": 6, "name": "식당" },
+        { "id": 7, "name": "바/술집" },
+        { "id": 8, "name": "헬스장" },
+        { "id": 9, "name": "요가/필라테스" }
       ]
     },
     {
@@ -42,11 +42,11 @@
       "name": "편의시설",
       "thumbnail": "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
       "sub_categories": [
-        { "id": 1, "name": "편의점" },
+        { "id": 7, "name": "편의점" },
         { "id": 2, "name": "빨래방" },
         { "id": 3, "name": "헤어샵" },
         { "id": 4, "name": "PC방" },
-        { "id": 5, "name": "노래방" }
+        { "id": 8, "name": "스포츠" }
       ]
     },
     {
