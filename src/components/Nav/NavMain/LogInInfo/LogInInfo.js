@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 class LogInInfo extends React.Component {
   render() {
-    const { kakaoList, kakaoLogOut } = this.props;
+    const { kakaoList, kakaoLogOut, handleInfoBytton } = this.props;
 
     return (
       <LogInInfoBox>
@@ -12,7 +12,7 @@ class LogInInfo extends React.Component {
         <BorderLine />
         <InfoContent>프로필</InfoContent>
         <InfoContent>메시지</InfoContent>
-        <Link to="/reservationDetails">
+        <Link to="/ReservationDetails/books?" onClick={handleInfoBytton}>
           <InfoContent>예약내역</InfoContent>
         </Link>
         <BorderLine />

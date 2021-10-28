@@ -26,8 +26,12 @@ export default class NavMain extends Component {
             <NavItemHover onClick={handleCategotyButton}>
               모든 카테고리
             </NavItemHover>
-            <NavItem>둘러보기</NavItem>
-            <NavItem>인기장소</NavItem>
+            <Link to="/places?order=-created_at">
+              <NavItem>신규 장소</NavItem>
+            </Link>
+            <Link to="/places?order=price">
+              <NavItem>가성비 장소</NavItem>
+            </Link>
             <NavItem>WATCH</NavItem>
             <NavItem>매거진</NavItem>
             <i className="fas fa-search" onClick={handleSerchButton} />
@@ -54,7 +58,11 @@ export default class NavMain extends Component {
             )}
           </CategoryBox>
           {isInfoBytton && (
-            <LogInInfo kakaoList={kakaoList} kakaoLogOut={kakaoLogOut} />
+            <LogInInfo
+              kakaoList={kakaoList}
+              kakaoLogOut={kakaoLogOut}
+              handleInfoBytton={handleInfoBytton}
+            />
           )}
         </NavContent>
       </Nav>
@@ -140,6 +148,11 @@ const CategoryBox = styled.div`
     font-size: 20px;
     font-weight: 300;
     cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
 

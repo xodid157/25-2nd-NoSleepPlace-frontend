@@ -160,8 +160,10 @@ const LiveSearchBox = styled.div`
   flex-direction: column;
   max-width: 964px;
   width: 100%;
+  max-height: 400px;
   padding: 0.7em 3em;
   background-color: white;
+  overflow: scroll;
 
   a {
     text-decoration: none;
