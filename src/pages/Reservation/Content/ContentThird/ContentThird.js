@@ -9,6 +9,13 @@ export default function ContentThird({
   countPeople,
   equipment,
   car,
+  date,
+  end_time,
+  start_time,
+  head_count,
+  price,
+  id,
+  name,
 }) {
   const [modal, setModal] = useState(false);
 
@@ -21,10 +28,10 @@ export default function ContentThird({
       <MainContainer>
         <MainContent>
           <ContentBox>
-            <TitleName>편의점</TitleName>
+            <TitleName>{name}</TitleName>
             <TextBox>
               <ContentTitle>장소 번호</ContentTitle>
-              <ContentText>27824</ContentText>
+              <ContentText>{id}</ContentText>
             </TextBox>
             <TextBox>
               <ContentTitle>콘텐츠 종류</ContentTitle>
@@ -44,7 +51,9 @@ export default function ContentThird({
             </TextBox>
             <TextBox>
               <ContentTitle>총인원</ContentTitle>
-              <ContentText>총 1명 ({countPeople})</ContentText>
+              <ContentText>
+                총 {head_count}명 ({countPeople})
+              </ContentText>
             </TextBox>
             <TextBox>
               <ContentTitle>장비규모</ContentTitle>
@@ -56,11 +65,14 @@ export default function ContentThird({
             </TextBox>
             <ScheduleBox>
               <ScheduleText>스케줄</ScheduleText>
-              <DateText>2021년 12월 10일 오전02:00 ~ 오전 05:00</DateText>
+              <DateText>{`${date
+                .replace(',', '년 ')
+                .replace(',', '월 ')
+                .concat('일 ')} ${start_time}:00 ~ ${end_time}:00`}</DateText>
             </ScheduleBox>
             <ScheduleBox>
               <ScheduleText>총 시간</ScheduleText>
-              <DateText>3 시간</DateText>
+              <DateText>{end_time - start_time} 시간</DateText>
             </ScheduleBox>
             <BorderLine />
             <PriceBox>
@@ -75,7 +87,9 @@ export default function ContentThird({
                   </Modal>
                 )}
               </PriceText>
-              <Price>306,000원</Price>
+              <Price>
+                {((end_time - start_time) * price).toLocaleString()} 원
+              </Price>
             </PriceBox>
           </ContentBox>
         </MainContent>

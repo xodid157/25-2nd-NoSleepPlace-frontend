@@ -19,7 +19,7 @@ function Login({ handleLogInButton, handleLogInBox, kakaoLogIn }) {
   const kakaoLogin = () => {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch('http://10.58.1.136:8000/users/account/kakao', {
+        fetch('http://52.79.51.199:8000/users/account/kakao', {
           method: 'POST',
           headers: { Authorization: authObj.access_token },
         })

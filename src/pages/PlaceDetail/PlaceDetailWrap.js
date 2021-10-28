@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PlaceDetail from './PlaceDetail';
 import Reservation from '../Reservation/Reservation';
 
-export default function PlaceDetailWrap() {
+export default function PlaceDetailWrap({ match }) {
   const [isReservePageOpen, setIsReservePageOpen] = useState(true);
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState([]);
   const [reservation, setReservation] = useState('');
   const [date, setDate] = useState('');
   const [month, setMonth] = useState('');
@@ -33,16 +33,14 @@ export default function PlaceDetailWrap() {
     }
   };
 
-  // useEffect(() => {
-  //   fetch(`http://10.58.1.10:8000/places/${match.params.id}`)
-  //     .then(res => res.json())
-  //     .then(res => setCategory(res.result));
-  // }, []);
+  useEffect(() => {
+    fetch(`http://52.79.51.199:8000/places/${match.params.id}`)
+      .then(res => res.json())
+      .then(res => setCategory(res.result));
+  }, []);
 
   useEffect(() => {
-    fetch(`/data/placeDetail.json`)
-      .then(res => res.json())
-      .then(res => setCategory(res.result[0]));
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -65,10 +63,13 @@ export default function PlaceDetailWrap() {
         />
       ) : (
         <Reservation
-          reservation={reservation}
-          month={month}
-          date={date}
-          personNums={personNums}
+          date={reservation}
+          end_time={date}
+          start_time={month}
+          head_count={personNums}
+          price={category.price}
+          id={category.id}
+          name={category.place_name}
         />
       )}
     </div>

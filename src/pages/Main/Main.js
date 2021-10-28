@@ -7,6 +7,9 @@ import VerticalAd from './VerticalAd';
 import { Link } from 'react-router-dom';
 
 export default class Main extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <>
@@ -14,7 +17,7 @@ export default class Main extends Component {
         <Container>
           <Category />
           <GoAllProduct>
-            <Link to="place?">
+            <Link to="/places">
               <button>
                 아워플레이스 모든 장소 보기
                 <i className="fas fa-arrow-right" />

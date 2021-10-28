@@ -4,9 +4,8 @@ import Main from './pages/Main/Main';
 import Nav from './components/Nav/Nav';
 import styled from 'styled-components';
 import Footer from './components/Footer/Footer';
-import PlaceDetail from './pages/PlaceDetail/PlaceDetail';
 import PlaceDetailWrap from './pages/PlaceDetail/PlaceDetailWrap';
-import placelist from '../src/components/Placelist/Placelist';
+import placelist from './pages/Placelist/Placelist';
 import Reservation from './pages/Reservation/Reservation';
 import ReservationDetails from './pages/ReservationDetails/ReservationDetails';
 

@@ -30,7 +30,7 @@ export default class Category extends Component {
               <ButtonWrap>
                 {sub_categories.map(({ name, id }, idx) => {
                   return (
-                    <Link to={`place?category=${id}`} key={idx}>
+                    <Link to={`places?category=${id}`} key={idx}>
                       <button type="button">{name}</button>
                     </Link>
                   );

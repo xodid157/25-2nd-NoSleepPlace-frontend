@@ -1,29 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import queryString from 'query-string';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-function Listpage({ categoryId, menuId }) {
+function Listpage() {
   const [result, setResult] = useState([]);
-
+  const location = useLocation();
   useEffect(() => {
-    let endPoint = 'places';
-
-    if (!categoryId && !menuId) {
-      endPoint += '?';
-    } else if (menuId && !categoryId) {
-      endPoint += '?category=-1';
-    } else {
-      endPoint += `?category=${categoryId}`;
-    }
-    // fetch('http://10.58.1.124:8000/places?')
-    // fetch(`http://10.58.1.124:8000/places?menu=${}`)
-
-    fetch(`http://10.58.1.124:8000/${endPoint}`)
+    fetch(`http://52.79.51.199:8000/places${location.search}`)
       .then(res => res.json())
       .then(data => setResult(data.result));
-  }, [menuId, categoryId]);
-  console.log(result);
+  }, [location]);
   return (
     <Container>
       {result &&
@@ -34,7 +20,7 @@ function Listpage({ categoryId, menuId }) {
           ) => {
             return (
               <Card key={idx}>
-                <Link to={`place/${id}`}>
+                <Link to={`/placeDetail/${id}`}>
                   <img alt="" src={url} />
                 </Link>
                 <Placeinfo>

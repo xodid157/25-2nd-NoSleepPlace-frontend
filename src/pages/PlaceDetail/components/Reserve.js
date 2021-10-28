@@ -7,7 +7,6 @@ export default function Reserve({
   category,
   handleReservation,
   handleMonth,
-  month,
   handleDate,
   handlePath,
   handlePersonMinus,
@@ -67,7 +66,7 @@ export default function Reserve({
       </TagWrap>
       <Price>
         <Won>
-          {category.price}
+          {category.price?.toLocaleString()}
           <p>원</p>
         </Won>
         <span>/ 시간</span>
@@ -81,7 +80,7 @@ export default function Reserve({
             handleReservation={handleReservation}
             handleMonth={handleMonth}
             handleDate={handleDate}
-            month={month}
+            handleCalendar={handleCalendar}
           />
         )}
         <h4>총인원</h4>
