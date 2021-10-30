@@ -47,20 +47,6 @@ const DatePick = ({
     return isPassedTimeByNow && isAlreadyReserved;
   };
 
-  // const [year, month, day] = formatDateToArr[0];
-  // const reserveTime = new Date(year, month - 1, day); // 유저가 예약한 시간
-  // const isAlreadyReserved = timeTableDate.getTime() !== reserveTime.getTime();
-  // console.log('time', time);
-  // console.log('reservedTime', reserveTime);
-  // console.log('aa', aa);
-  // console.log('isAlreadyReserved', isAlreadyReserved);
-  // console.log('ispass', isPassedTimeByNow);
-  // console.log(currentDate);
-  // return isPassedTimeByNow && isAlreadyReserved;
-  // isAlreadyReserve -> true ->
-  // isAlreadyReserve -> false ->
-  // };
-
   const reservationTime = {
     reservation: [
       format(startDate, 'yyyy,MM,dd'),
