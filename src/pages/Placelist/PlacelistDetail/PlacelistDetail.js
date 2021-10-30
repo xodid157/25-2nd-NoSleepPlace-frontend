@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import Place from './Place';
 import queryString from 'query-string';
@@ -5,8 +6,9 @@ import { withRouter, Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import Listpage from './Listpage/Listpage';
 
-function PlacelistDetail({ placelist, handleGotoSecond, match }) {
+function PlacelistDetail({ placelist, handleGotoSecond }) {
   const location = useLocation();
+
   const menuId = queryString.parse(location.search).menu;
   // const categoryId = queryString.parse(location.search).category;
 
@@ -83,7 +85,7 @@ const Sort = styled.div`
   border-radius: 3px;
   padding: 10px;
   margin-right: 120px;
-  margin-left: 825px;
+  margin-left: 810px;
   cursor: pointer;
 `;
 

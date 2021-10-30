@@ -59,12 +59,12 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 273px;
-  margin-right: 25px;
+  margin-right: 27px;
   padding-top: 30px;
 
   img {
     object-fit: cover;
-    width: 100%;
+    width: 280px;
     height: 149px;
     object-fit: cover;
     border-radius: 5px;
