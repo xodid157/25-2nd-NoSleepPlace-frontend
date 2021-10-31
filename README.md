@@ -16,7 +16,7 @@
 
 
 ## ⚙️ 적용기술
-- FrontEnd : React, Html5, Css3 , Styled Components
+- FrontEnd : React, HTML5, CSS3 , Styled Components
 - BackEnd : 
 - Communication : Git, GitHub, Trello, Slack, Notion , PostMan
 
