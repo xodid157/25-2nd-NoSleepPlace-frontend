@@ -18,7 +18,7 @@
 ## ⚙️ 적용기술
 - FrontEnd : React, HTML5, CSS3 , Styled Components
 - BackEnd : 
-- Communication : Git, GitHub, Trello, Slack, Notion , PostMan
+- Communication : Git, GitHub, Trello, Slack, PostMan
 
 ## 💾 데이터베이스 
 ![Untitled (3)](https://user-images.githubusercontent.com/80348575/139586819-15c5be8b-5b56-4f4c-b21f-7e6ffe7a4fb6.png)
