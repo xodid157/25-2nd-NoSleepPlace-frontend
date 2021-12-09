@@ -1,74 +1,71 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogInInfo from './LogInInfo/LogInInfo';
 
-export default class NavMain extends Component {
-  render() {
-    const {
-      handleCategotyButton,
-      handleSerchButton,
-      isLogIn,
-      kakaoList,
-      isInfoBytton,
-      handleInfoBytton,
-      handleLogInButton,
-      kakaoLogOut,
-    } = this.props;
-
-    return (
-      <Nav>
-        <NavContent>
-          <Link to="/">
-            <LogImg alt="logoImg" src="/images/nosleep.png" />
+function NavMain({
+  handleCategotyButton,
+  handleSerchButton,
+  isLogIn,
+  kakaoList,
+  isInfoBytton,
+  handleInfoBytton,
+  handleLogInButton,
+  kakaoLogOut,
+}) {
+  return (
+    <Nav>
+      <NavContent>
+        <Link to="/">
+          <LogImg alt="logoImg" src="/images/nosleep.png" />
+        </Link>
+        <CategoryBox>
+          <NavItemHover onClick={handleCategotyButton}>
+            모든 카테고리
+          </NavItemHover>
+          <Link to="/places?order=-created_at">
+            <NavItem>신규 장소</NavItem>
           </Link>
-          <CategoryBox>
-            <NavItemHover onClick={handleCategotyButton}>
-              모든 카테고리
-            </NavItemHover>
-            <Link to="/places?order=-created_at">
-              <NavItem>신규 장소</NavItem>
-            </Link>
-            <Link to="/places?order=price">
-              <NavItem>가성비 장소</NavItem>
-            </Link>
-            <NavItem>WATCH</NavItem>
-            <NavItem>매거진</NavItem>
-            <i className="fas fa-search" onClick={handleSerchButton} />
-            <i className="fas fa-map-marker-alt" />
-            <RightLine />
-            {isLogIn ? (
-              <LogIn>
-                <LoginDifferentColor>장소 등록</LoginDifferentColor>
-                <LogInImg
-                  alt="LoginKakaoImg"
-                  src={kakaoList.profile_image}
-                  onClick={handleInfoBytton}
-                />
-                <i className="far fa-bell" />
-                <i className="far fa-bookmark" />
-              </LogIn>
-            ) : (
-              <LogOut>
-                <DifferentColor>장소 등록</DifferentColor>
-                <DifferentColor onClick={handleLogInButton}>
-                  로그인
-                </DifferentColor>
-              </LogOut>
-            )}
-          </CategoryBox>
-          {isInfoBytton && (
-            <LogInInfo
-              kakaoList={kakaoList}
-              kakaoLogOut={kakaoLogOut}
-              handleInfoBytton={handleInfoBytton}
-            />
+          <Link to="/places?order=price">
+            <NavItem>가성비 장소</NavItem>
+          </Link>
+          <NavItem>WATCH</NavItem>
+          <NavItem>매거진</NavItem>
+          <i className="fas fa-search" onClick={handleSerchButton} />
+          <i className="fas fa-map-marker-alt" />
+          <RightLine />
+          {isLogIn ? (
+            <LogIn>
+              <LoginDifferentColor>장소 등록</LoginDifferentColor>
+              <LogInImg
+                alt="LoginKakaoImg"
+                src={kakaoList.profile_image}
+                onClick={handleInfoBytton}
+              />
+              <i className="far fa-bell" />
+              <i className="far fa-bookmark" />
+            </LogIn>
+          ) : (
+            <LogOut>
+              <DifferentColor>장소 등록</DifferentColor>
+              <DifferentColor onClick={handleLogInButton}>
+                로그인
+              </DifferentColor>
+            </LogOut>
           )}
-        </NavContent>
-      </Nav>
-    );
-  }
+        </CategoryBox>
+        {isInfoBytton && (
+          <LogInInfo
+            kakaoList={kakaoList}
+            kakaoLogOut={kakaoLogOut}
+            handleInfoBytton={handleInfoBytton}
+          />
+        )}
+      </NavContent>
+    </Nav>
+  );
 }
+export default NavMain;
 
 const Nav = styled.div`
   position: fixed;
@@ -98,7 +95,6 @@ const NavItem = styled.span`
   font-weight: 400;
   padding: 0.7em 0.35em;
   cursor: pointer;
-
   &:hover {
     background-color: #f5f7f8;
   }
@@ -110,7 +106,6 @@ const NavItemHover = styled.span`
   font-weight: 400;
   padding: 0.7em 0.35em;
   cursor: pointer;
-
   &:hover {
     background-color: #f5f7f8;
   }
@@ -133,7 +128,6 @@ const DifferentColor = styled.span`
   color: #72787f;
   font-size: 15px;
   cursor: pointer;
-
   &:hover {
     background-color: #f5f7f8;
   }
@@ -142,14 +136,12 @@ const DifferentColor = styled.span`
 const CategoryBox = styled.div`
   display: flex;
   align-items: center;
-
   i {
     margin: 0 0.5em 0 0.5em;
     font-size: 20px;
     font-weight: 300;
     cursor: pointer;
   }
-
   a {
     text-decoration: none;
     color: black;
@@ -161,7 +153,6 @@ const LogOut = styled.div``;
 const LogIn = styled.div`
   display: flex;
   align-items: center;
-
   i {
     font-size: 20px;
     margin-left: 0.7em;
@@ -175,7 +166,6 @@ const LoginDifferentColor = styled.span`
   color: #72787f;
   font-size: 12px;
   cursor: pointer;
-
   &:hover {
     background-color: #f5f7f8;
   }

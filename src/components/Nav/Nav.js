@@ -1,185 +1,124 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import NavMain from './NavMain/NavMain';
 import NavCategory from './NavCategory/NavCategory';
 import SearchModal from './SearchModal/SearchModal';
 import Login from '../Login/Login';
 
-class Nav extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isCategoryButton: false,
-      isSearch: false,
-      isInfoBytton: false,
-      isLogIn: false,
-      categotyList: [],
-      kakaoList: [],
-      isVisible: false,
-      liveSearch: [],
-      userInput: '',
-    };
-  }
+function Nav(history) {
+  const [isCategoryButton, setIsCategoryButton] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [isInfoBytton, setIsInfoBytton] = useState(false);
+  const [isLogIn, setIsLogIn] = useState(false);
+  const [categotyList, setCategotyList] = useState([]);
+  const [kakaoList, setKakaoList] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
+  const [liveSearch, setLiveSearch] = useState([]);
+  const [userInput, setUserInput] = useState('');
 
-  componentDidMount() {
+  useEffect(() => {
     fetch('/data/navListData.json')
       .then(res => res.json())
-      .then(result =>
-        this.setState({
-          categotyList: result,
-        })
-      );
+      .then(result => setCategotyList(result));
 
     fetch(`http://52.79.51.199:8000/places?`)
       .then(res => res.json())
-      .then(res =>
-        this.setState({
-          liveSearch: res.result,
-        })
-      );
-  }
+      .then(res => setLiveSearch(res.result));
+  }, []);
 
-  handleCategotyButton = () => {
-    this.setState(prevState => {
-      return {
-        isCategoryButton: !prevState.isCategoryButton,
-        isSearch: false,
-      };
-    });
+  const handleCategotyButton = () => {
+    setIsCategoryButton(!isCategoryButton);
+    setIsSearch(false);
   };
 
-  handleSerchButton = () => {
-    this.setState(prevState => {
-      return {
-        isSearch: !prevState.isSearch,
-        isCategoryButton: false,
-      };
-    });
+  const handleSerchButton = () => {
+    setIsSearch(!isSearch);
+    setIsCategoryButton(false);
   };
 
-  handleInfoBytton = () => {
-    this.setState(prevState => {
-      return {
-        isInfoBytton: !prevState.isInfoBytton,
-      };
-    });
+  const handleInfoBytton = () => {
+    setIsInfoBytton(!isInfoBytton);
   };
 
-  handleLogInButton = () => {
-    this.setState(prevState => {
-      return {
-        isVisible: !prevState.isVisible,
-      };
-    });
+  const handleLogInButton = () => {
+    setIsVisible(!isVisible);
   };
 
-  handleLogInBox = () => {
-    this.setState(prevState => {
-      return {
-        isLogIn: !prevState.isLogIn,
-      };
-    });
+  const handleLogInBox = () => {
+    setIsLogIn(!isLogIn);
   };
 
-  kakaoLogOut = () => {
+  const kakaoLogOut = () => {
     window.localStorage.clear();
-    this.setState(prevState => {
-      return {
-        isLogIn: !prevState.isLogIn,
-        isInfoBytton: !prevState.isInfoBytton,
-      };
-    });
+    setIsLogIn(!isLogIn);
+    setIsInfoBytton(!isInfoBytton);
   };
 
-  handleChange = e => {
+  const handleChange = e => {
     const { value } = e.target;
-    this.setState({
-      userInput: value,
-    });
+    setUserInput(value);
   };
 
-  handleEnter = e => {
+  const handleEnter = e => {
     const { value } = e.target;
-    const { history } = this.props;
     if (e.key === 'Enter') {
-      this.setState(prevState => {
-        return {
-          isSearch: !prevState.isSearch,
-          isCategoryButton: false,
-          userInput: value,
-        };
-      });
+      setIsSearch(!isSearch);
+      setIsCategoryButton(false);
+      setUserInput(value);
       history.push(`/places?keyword=${value}`);
     }
   };
 
-  kakaoLogIn = () => {
+  const kakaoLogIn = () => {
     fetch('http://52.79.51.199:8000/users/profile', {
       headers: {
         Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
-      .then(res =>
-        this.setState({
-          kakaoList: res.result,
-        })
-      );
+      .then(res => setKakaoList(res.result));
   };
 
-  render() {
-    const {
-      isCategoryButton,
-      categotyList,
-      isSearch,
-      isLogIn,
-      kakaoList,
-      isInfoBytton,
-      isVisible,
-      liveSearch,
-      userInput,
-    } = this.state;
+  const filterSearch = liveSearch.filter(content => {
+    return content.place_name.toLowerCase().includes(userInput.toLowerCase());
+  });
 
-    const filterSearch = liveSearch.filter(content => {
-      return content.place_name.toLowerCase().includes(userInput.toLowerCase());
-    });
-
-    return (
-      <>
-        <NavMain
-          handleCategotyButton={this.handleCategotyButton}
-          handleSerchButton={this.handleSerchButton}
-          isLogIn={isLogIn}
-          kakaoList={kakaoList}
-          isInfoBytton={isInfoBytton}
-          handleInfoBytton={this.handleInfoBytton}
-          handleLogInButton={this.handleLogInButton}
-          kakaoLogOut={this.kakaoLogOut}
+  return (
+    <>
+      <NavMain
+        handleCategotyButton={handleCategotyButton}
+        handleSerchButton={handleSerchButton}
+        isLogIn={isLogIn}
+        kakaoList={kakaoList}
+        isInfoBytton={isInfoBytton}
+        handleInfoBytton={handleInfoBytton}
+        handleLogInButton={handleLogInButton}
+        kakaoLogOut={kakaoLogOut}
+      />
+      {isCategoryButton && (
+        <NavCategory
+          categotyList={categotyList}
+          handleCategotyButton={handleCategotyButton}
         />
-        {isCategoryButton && (
-          <NavCategory
-            categotyList={categotyList}
-            handleCategotyButton={this.handleCategotyButton}
-          />
-        )}
-        {isSearch && (
-          <SearchModal
-            handleChange={this.handleChange}
-            filterSearch={filterSearch}
-            userInput={userInput}
-            handleSerchButton={this.handleSerchButton}
-            handleEnter={this.handleEnter}
-          />
-        )}
-        {isVisible && (
-          <Login
-            handleLogInButton={this.handleLogInButton}
-            handleLogInBox={this.handleLogInBox}
-            kakaoLogIn={this.kakaoLogIn}
-          />
-        )}
-      </>
-    );
-  }
+      )}
+      {isSearch && (
+        <SearchModal
+          handleChange={handleChange}
+          filterSearch={filterSearch}
+          userInput={userInput}
+          handleSerchButton={handleSerchButton}
+          handleEnter={handleEnter}
+        />
+      )}
+      {isVisible && (
+        <Login
+          handleLogInButton={handleLogInButton}
+          handleLogInBox={handleLogInBox}
+          kakaoLogIn={kakaoLogIn}
+        />
+      )}
+    </>
+  );
 }
+
 export default withRouter(Nav);
