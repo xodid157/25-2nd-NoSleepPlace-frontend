@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-export default class NavCategory extends Component {
-  handleSearchCategory = e => {
+function NavCategory({ categotyList, handleCategotyButton }) {
+  const handleSearchCategory = e => {
     if (e === '주택') {
       return 1;
     } else if (e === '아파트') {
@@ -23,36 +23,32 @@ export default class NavCategory extends Component {
     return 0;
   };
 
-  render() {
-    const { categotyList, handleCategotyButton } = this.props;
-
-    return (
-      <NavCategoryBox>
-        <CategoryContent>
-          {categotyList.map((content, index) => (
-            <ContentList key={index}>
-              <Link to={`/places?menu=${content.id}`}>
-                <li onClick={handleCategotyButton}>{content.title}</li>
-              </Link>
-              <ItemBox>
-                {content.categoryList.map((content, index) => (
-                  <Link
-                    to={`/places?category=${this.handleSearchCategory(
-                      content
-                    )}`}
-                    key={index}
-                  >
-                    <span onClick={handleCategotyButton}>{content}</span>
-                  </Link>
-                ))}
-              </ItemBox>
-            </ContentList>
-          ))}
-        </CategoryContent>
-      </NavCategoryBox>
-    );
-  }
+  return (
+    <NavCategoryBox>
+      <CategoryContent>
+        {categotyList.map((content, index) => (
+          <ContentList key={index}>
+            <Link to={`/places?menu=${content.id}`}>
+              <li onClick={handleCategotyButton}>{content.title}</li>
+            </Link>
+            <ItemBox>
+              {content.categoryList.map((content, index) => (
+                <Link
+                  to={`/places?category=${handleSearchCategory(content)}`}
+                  key={index}
+                >
+                  <span onClick={handleCategotyButton}>{content}</span>
+                </Link>
+              ))}
+            </ItemBox>
+          </ContentList>
+        ))}
+      </CategoryContent>
+    </NavCategoryBox>
+  );
 }
+
+export default NavCategory;
 
 const NavCategoryBox = styled.div`
   position: fixed;
@@ -71,7 +67,6 @@ const CategoryContent = styled.div`
   width: 100%;
   max-width: 1160px;
   font-size: 1.25em;
-
   a {
     margin: 0.3em 0;
     text-decoration: none;
@@ -80,7 +75,6 @@ const CategoryContent = styled.div`
 
 const ContentList = styled.ul`
   margin: 0.4em 0 2em;
-
   a {
     li {
       margin: 0 0.2em 0.5em 0.5em;
@@ -88,7 +82,6 @@ const ContentList = styled.ul`
       font-weight: 600;
       color: rgb(69, 75, 80);
       cursor: pointer;
-
       &:hover {
         background-color: #f5f7f8;
       }
@@ -100,14 +93,12 @@ const ItemBox = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 0.7em;
-
   span {
     margin: 0.4em 0.2em 0 0.8em;
     padding: 0.438em 3em 0.313em 0;
     color: #454b50;
     font-size: 15px;
     cursor: pointer;
-
     &:hover {
       background-color: #f5f7f8;
     }
